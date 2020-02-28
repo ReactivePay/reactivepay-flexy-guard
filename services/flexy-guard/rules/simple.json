@@ -1,0 +1,28 @@
+[
+    {
+        "param": {
+            "name": "mid",
+            "param": {
+                "name": "acq_id",
+                "param": {
+                    "name":"currency",
+                    "param": {
+                      "name": "card",
+                      "param":
+                      {
+                        "name": "amount",
+                        "aggr": {
+                            "type": "sum",
+                            "duration": ["1", "7", "30"]
+                        }
+                      },
+                      "aggr": {
+                        "type": "count",
+                        "duration": ["1", "7", "30"]
+                      }
+                    }
+                }
+            }
+        }
+      }
+]

@@ -1,0 +1,58 @@
+{
+  "6c336fcdb386eeda5355d08b0ed2289e": {
+        "header": {
+              "mid": "123",
+              "acq_id": "1234",
+              "currency": "USD"
+        },
+        "body": {
+          "card": {
+            "count": {
+              "1": [0,70],
+              "7": [0, 1500]
+            },
+            "amount": {
+              "sum": {
+                "1": [0, 300000],
+                "30": [0, 500000]
+              },
+              "value": [10, 10000]
+            },
+            "not_in": ["sadsadasdasdasdasdas", "asdasdasd"],
+            "in": ["qwerty"]
+          },
+          "bin": {
+            "not_in_country": ["US", "CA"]
+          }
+        }
+  },
+
+  "f41b28496c829d97e2aa41202d8eaef9": {
+        "header": {
+              "mid": "123",
+              "acq_id": "1234"
+        },
+        "body": {
+          "email": {
+            "count": {
+              "1": [0,70],
+              "7": [0,150]
+            }
+          }
+        }
+  },
+
+  "0dc0774907bdb0c40e4ab32fd4ff18ac": {
+        "header": {
+          "mid": "123"
+        },
+        "body": {
+          "ip": {
+            "count":  {
+              "1": [0, 10]
+            },
+            "not_in_ip_country": ["US", "CA"]
+          }
+        }
+  }
+}

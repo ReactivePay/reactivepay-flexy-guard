@@ -1,0 +1,162 @@
+[
+  {
+    "param": {
+        "name": "mid",
+        "param": {
+            "name": "acq_id",
+            "param": {
+                "name":"email",
+                "param": {
+                  "name": "status",
+                  "aggr": {
+                      "value": "decline",
+                      "type": "count",
+                      "duration": ["1", "7", "30"]
+                  }
+                },
+                "aggr": {
+                  "type": "count",
+                  "duration": ["1", "7", "30"]
+                }
+            }
+        }
+    }
+  },
+  {
+    "param": {
+        "name": "mid",
+        "param": {
+            "name": "ip",
+            "aggr": {
+                "type": "count",
+                "duration": ["1", "7", "30"]
+            }
+        }
+    }
+  },
+  {
+    "param": {
+        "name": "mid",
+        "param": {
+            "name": "acq_id",
+            "param": {
+                "name":"currency",
+                "param": {
+                  "name": "email",
+                  "param": {
+                      "name": "amount",
+                      "aggr": {
+                          "type": "sum",
+                          "duration": ["1", "7", "30"]
+                      }
+                  }
+                }
+            }
+        }
+    }
+  },
+  {
+    "param": {
+        "name": "mid",
+        "param": {
+            "name": "acq_id",
+            "param": {
+                "name":"currency",
+                "param": {
+                  "name": "ip",
+                  "param": {
+                    "name": "amount",
+                    "aggr": {
+                        "type": "sum",
+                        "duration": ["1", "7", "30"]
+                    }
+                  }
+                }
+            }
+        }
+    }
+  },
+  {
+    "param": {
+        "name": "mid",
+        "param": {
+            "name": "acq_id",
+            "param": {
+                "name":"currency",
+                "param": {
+                  "name": "amount",
+                  "aggr": {
+                      "type": "sum",
+                      "duration": ["1", "7", "30"]
+                  }
+                }
+            }
+        }
+    }
+  },
+  {
+    "param": {
+        "name": "mid",
+        "param": {
+            "name": "acq_id",
+            "param": {
+                "name":"currency",
+                "param": {
+                  "name": "card",
+                  "param":
+                  {
+                    "name": "amount",
+                    "aggr": {
+                        "type": "sum",
+                        "duration": ["1", "7", "30"]
+                    }
+                  },
+                  "aggr": {
+                    "type": "count",
+                    "duration": ["1", "7", "30"]
+                  }
+                }
+            }
+        }
+    }
+  },
+  {
+    "param": {
+        "name": "mcc",
+        "param": {
+            "name": "acq_id",
+            "param": {
+              "name":"currency",
+              "param": {
+                "name": "amount",
+                "aggr": {
+                  "type": "sum",
+                  "duration": ["1", "7", "30"]
+                }
+              }
+            }
+        }
+    }
+  },
+  {
+    "param": {
+      "name": "acq_id",
+      "param": {
+        "name": "currency",
+        "param": {
+          "name": "mcc",
+          "param": {
+            "name": "mid",
+            "param": {
+              "name": "amount",
+              "aggr": {
+                "type": "sum",
+                "duration": ["1", "7", "30"]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+]

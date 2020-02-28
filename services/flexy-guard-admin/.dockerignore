@@ -1,0 +1,10 @@
+.idea*
+*.sqlite3
+*.sqlite3-journal
+log/*
+tmp/*
+docs/*
+Dockerfile
+README.md
+docker-compose.yml
+deploy.sh

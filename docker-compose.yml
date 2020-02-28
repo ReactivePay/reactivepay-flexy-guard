@@ -1,0 +1,66 @@
+version: "3"
+
+volumes:
+  mongo-data:
+    driver: local
+
+services:
+  mongo:
+   image: mongo:4.1.8-xenial
+   volumes:
+     - mongo-data:/data/db
+
+  mongo-express:
+   image: mongo-express:0.49.0
+   ports:
+     - 8081:8081
+   environment:
+     - "ME_CONFIG_MONGODB_SERVER=mongo"
+     - "ME_CONFIG_MONGODB_PORT=27017"
+     - "ME_CONFIG_MONGODB_ENABLE_ADMIN=false"
+   depends_on:
+     - mongo
+
+  flexy-guard:
+   build:
+     context: ./services/flexy-guard
+     dockerfile: Dockerfile
+   image: flexy-guard:latest
+   command: python3 app.py
+   volumes:
+     - ./services/flexy-guard:/flexy-guard
+   stdin_open: true
+   tty: true
+   depends_on:
+     - mongo
+   environment:
+     SERVER_HOST: '0.0.0.0'
+     SERVER_PORT: '5000'
+     SERVER_DEBUG: 'true'
+     DB_HOST: mongo
+     DB_PORT: 27017
+   ports:
+     - "7000:5000"
+
+  flexy-guard-admin:
+   build:
+     context: ./services/flexy-guard-admin
+     dockerfile: Dockerfile
+   image: flexy-guard-admin:latest
+   command: python3 app.py
+   depends_on:
+     - mongo
+   volumes:
+     - ./services/flexy-guard-admin:/flexy-guard
+   stdin_open: true
+   tty: true
+   environment:
+     SERVER_HOST: '0.0.0.0'
+     SERVER_PORT: '5000'
+     SERVER_DEBUG: 'true'
+     BASIC_AUTH_USERNAME: 'admin@reactivepay.com'
+     BASIC_AUTH_PASSWORD: 'password'
+     DB_HOST: mongo
+     DB_PORT: 27017
+   ports:
+     - "7081:5000"

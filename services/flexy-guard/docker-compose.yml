@@ -1,0 +1,70 @@
+version: "3"
+
+#volumes:
+#  mongo-data:
+#    driver: local
+
+services:
+  mongo:
+    image: mongo:4.1.8-xenial
+    command: --replSet rs0 --bind_ip 0.0.0.0
+    restart: always
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: root
+#      MONGO_INITDB_ROOT_PASSWORD: example
+#    volumes:
+#      - mongo-data:/data/db
+  mongo-setup:
+    image: mongo:4.1.8-xenial
+    command: bash -c "echo 'rs.initiate(); rs.slaveOk()' | mongo --host mongo"
+    depends_on:
+      - mongo
+
+  mongo-express:
+    image: mongo-express:0.49.0
+    restart: always
+    ports:
+      - 8081:8081
+    depends_on:
+      - mongo
+#    environment:
+#      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+#      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+
+  flexy-guard:
+    build:
+      context: ./rpay-flexy-guard
+      dockerfile: Dockerfile
+    image: flexy-guard:latest
+    command: python3 app.py
+    volumes:
+      - ./rpay-flexy-guard:/flexy-guard
+    stdin_open: true
+    tty: true
+    depends_on:
+      - mongo
+    environment:
+      SERVER_HOST: '0.0.0.0'
+      SERVER_PORT: '5000'
+      SERVER_DEBUG: 'true'
+    ports:
+      - "7000:5000"
+
+  flexy-guard-admin:
+    build:
+      context: ./rpay-flexy-guard-admin
+      dockerfile: Dockerfile
+    image: flexy-guard-admin:latest
+    command: python3 app.py
+    depends_on:
+      - mongo
+    volumes:
+      - ./rpay-flexy-guard-admin:/flexy-guard
+    stdin_open: true
+    tty: true
+    environment:
+      SERVER_HOST: '0.0.0.0'
+      SERVER_PORT: '5000'
+      SERVER_DEBUG: 'true'
+    ports:
+      - "7001:5000"
