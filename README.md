@@ -154,7 +154,7 @@ definition are rarely to be modified only in the case of changing the
 rule (adding new param to the payment entity) schema or aggregation
 logic'
 
-![image](img/flexyguard_def.png)
+![image](https://reactivepay-docs.readthedocs.io/en/latest/_images/flexyguard_def.png)
 
 ## FlexyGuard admin console (WEB UI)
 
@@ -163,21 +163,21 @@ logic'
 To add a new rule please navigate to Add Rule page bu clicking
 FlexyGuard log at the upper left corner
 
-![image](img/flexyguard_addrule.png)
+![image](https://reactivepay-docs.readthedocs.io/en/latest/_images/flexyguard_addrule.png)
 
 ## FlexyGuard keywords (count, not\_in, not\_in\_country, not\_in\_ip\_country, value)
 
 **count** - sets a range in which param presence in the payment request
 count must be checked
 
-![image](img/flexyguard_count.png)
+![image](https://reactivepay-docs.readthedocs.io/en/latest/_images/flexyguard_count.png)
 
 *sets the range for payment count withing one card parameter within 1
 and 7 days*
 
 **not\_in/in** - checks that parameter value is not in or in the list
 
-![image](img/flexyguard_not_in.png)
+![image](https://reactivepay-docs.readthedocs.io/en/latest/_images/flexyguard_not_in.png)
 
 *sets a list of card parameter and checks if card value not in the list*
 
@@ -187,17 +187,17 @@ country list associated with this parameter
 **in\_country** - checks if specific parameter value is in the country
 list associated with this parameter
 
-![image](img/flexyguard_not_in_country.png)
+![image](https://reactivepay-docs.readthedocs.io/en/latest/_images/flexyguard_not_in_country.png)
 
 *checks if bin parameter value is not in the list*
 
 **value** - checks if parameter value is withing the range
 
-![image](img/flexyguard_value.png)
+![image](https://reactivepay-docs.readthedocs.io/en/latest/_images/flexyguard_value.png)
 
 ## Uploading the lists for IP countries and BIN countries parameters
 
-![image](img/flexyguard_lists.png)
+![image](https://reactivepay-docs.readthedocs.io/en/latest/_images/flexyguard_lists.png)
 
 To update the parameter (bin, ip) country lists please navigate to the
 page above
@@ -227,7 +227,7 @@ IP address country file example:
 
 To search the rule please enter any text on the Search text box
 
-![image](img/flexyguard_search.png)
+![image](https://reactivepay-docs.readthedocs.io/en/latest/_images/flexyguard_search.png)
 
 To modify the rule just follow the link under rule hash value
 
@@ -236,7 +236,7 @@ To modify the rule just follow the link under rule hash value
 When you save a rule the system automatically creates a hash value and
 descriptor based on header parameters
 
-![image](img/flexyguard_hash.png)
+![image](https://reactivepay-docs.readthedocs.io/en/latest/_images/flexyguard_hash.png)
 
 Please add comment whcih will be added to the search index along with
 hash and descriptor, please mind that proper naming in the comment fild
